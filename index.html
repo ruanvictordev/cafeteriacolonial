@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plano de Captação — Cafeteria Colonial</title>
+<title>Plano de Captação - Cafeteria Colonial</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -31,7 +31,7 @@
   /* ── HEADER ── */
   .header {
     background: var(--marrom);
-    padding: 56px 32px 48px;
+    padding: 56px 24px 48px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -56,9 +56,8 @@
     background: var(--dourado);
     opacity: 0.6;
   }
-  .ornament-icon {
-    font-size: 20px;
-  }
+  .ornament-icon { font-size: 20px; }
+
   .header-eyebrow {
     font-size: 10px;
     letter-spacing: 3.5px;
@@ -70,7 +69,7 @@
   }
   .header h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(30px, 6vw, 50px);
+    font-size: clamp(26px, 7vw, 50px);
     color: var(--bege);
     line-height: 1.15;
     margin-bottom: 8px;
@@ -91,10 +90,11 @@
   .header-badges {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
     margin-top: 28px;
     position: relative;
+    padding: 0 8px;
   }
   .badge {
     background: rgba(245,230,200,0.1);
@@ -102,28 +102,23 @@
     color: var(--bege);
     font-size: 11px;
     font-weight: 500;
-    padding: 5px 14px;
+    padding: 5px 12px;
     border-radius: 20px;
     letter-spacing: 0.5px;
+    white-space: nowrap;
   }
 
   /* ── WRAPPER ── */
   .wrap {
     max-width: 820px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 20px;
   }
 
   /* ── SECTION HEADERS ── */
   .sec {
     padding: 48px 0 40px;
   }
-  .sec-dark {
-    background: var(--marrom);
-    padding: 48px 24px 44px;
-    margin: 0;
-  }
-  .sec-dark .wrap { padding: 0; }
 
   .sec-label {
     display: inline-flex;
@@ -136,7 +131,6 @@
     color: var(--terracota);
     margin-bottom: 8px;
   }
-  .sec-label-light { color: var(--dourado); }
   .sec-label-dot {
     width: 5px; height: 5px;
     border-radius: 50%;
@@ -146,12 +140,11 @@
 
   .sec-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(22px, 4vw, 30px);
+    font-size: clamp(20px, 4vw, 30px);
     color: var(--marrom);
     line-height: 1.2;
     margin-bottom: 6px;
   }
-  .sec-title-light { color: var(--bege); }
 
   .sec-rule {
     width: 40px; height: 2px;
@@ -167,9 +160,8 @@
     max-width: 580px;
     margin-bottom: 28px;
   }
-  .sec-desc-light { color: rgba(245,230,200,0.65); }
 
-  /* ── BOXES PADRÃO (Fotos, Escopo) ── */
+  /* ── BOXES PADRÃO ── */
   .content-box {
     background: white;
     border-radius: 16px;
@@ -179,11 +171,13 @@
   }
   .box-header {
     background: var(--bege);
-    padding: 18px 24px;
+    padding: 16px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
     border-bottom: 1px solid var(--bege-escuro);
+    flex-wrap: wrap;
   }
   .box-header-title {
     font-family: 'Playfair Display', serif;
@@ -191,13 +185,14 @@
     color: var(--marrom);
   }
   .box-tag {
-    font-size: 12px;
+    font-size: 11px;
     background: var(--terracota);
     color: white;
     padding: 3px 12px;
     border-radius: 20px;
     font-weight: 600;
     letter-spacing: 0.5px;
+    white-space: nowrap;
   }
   .box-grid {
     display: grid;
@@ -238,23 +233,16 @@
     line-height: 1.5;
   }
 
-  /* Responsividade Caixas Padrão */
-  @media (max-width: 500px) { 
-    .box-grid { grid-template-columns: 1fr; } 
-    .box-item { border-right: none !important; }
-    .box-item:nth-last-child(-n+2) { border-bottom: 1px solid rgba(59,31,14,0.06); }
-    .box-item:last-child { border-bottom: none !important; }
-  }
-  
   /* ── HIGHLIGHT PREÇO ── */
   .box-price-footer {
     background: var(--terracota);
     color: var(--offwhite);
     text-align: center;
     padding: 18px 24px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.5px;
+    line-height: 1.5;
   }
   .box-price-footer em {
     font-family: 'Playfair Display', serif;
@@ -279,7 +267,6 @@
     grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
-  @media (max-width: 580px) { .reels-grid { grid-template-columns: 1fr; } }
 
   .reel-card {
     background: white;
@@ -321,7 +308,7 @@
     line-height: 1;
   }
 
-  .reel-card-meta { flex: 1; }
+  .reel-card-meta { flex: 1; min-width: 0; }
   .reel-dia-tag {
     display: inline-block;
     font-size: 10px;
@@ -381,272 +368,202 @@
     margin-top: 1px;
   }
 
-  /* ── TIMELINE ── */
-  .timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-  .tl-dia {
+  /* ── PRICING CARDS ── */
+  .planos-grid {
     display: grid;
-    grid-template-columns: 90px 1fr;
-    gap: 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+    align-items: start;
   }
-  .tl-dia-label {
-    background: var(--marrom);
-    color: var(--bege);
+
+  .plano-card {
+    background: white;
+    border-radius: 16px;
+    border: 1.5px solid rgba(59,31,14,0.10);
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(59,31,14,0.05);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 10px;
-    text-align: center;
+  }
+
+  .plano-card.destaque {
+    border-color: var(--terracota);
+    background: var(--terracota);
+    box-shadow: 0 6px 28px rgba(200,121,65,0.18);
     position: relative;
   }
-  .tl-dia-label::after {
-    content: '';
-    position: absolute;
-    right: 0; top: 50%;
-    transform: translateY(-50%);
-    width: 0; height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 10px solid var(--marrom);
-  }
-  .tl-dia-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
+
+  .plano-destaque-badge {
+    background: var(--marrom);
     color: var(--dourado);
-    line-height: 1;
-  }
-  .tl-dia-nome {
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(245,230,200,0.6);
-    font-weight: 600;
-    margin-top: 2px;
-  }
-  .tl-slots {
-    border-bottom: 1px solid rgba(59,31,14,0.08);
-  }
-  .tl-slot {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    border-bottom: 1px solid rgba(59,31,14,0.06);
-  }
-  .tl-slot:last-child { border-bottom: none; }
-  .tl-hora {
-    background: var(--bege);
-    padding: 12px 14px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--terracota);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     text-align: center;
-    border-right: 1px solid var(--bege-escuro);
-    font-variant-numeric: tabular-nums;
-  }
-  .tl-atividade {
-    padding: 12px 16px;
-    font-size: 12px;
-    color: var(--texto);
-    display: flex;
-    align-items: center;
-    line-height: 1.5;
-    background: white;
-  }
-  .tl-tag {
-    display: inline-block;
     font-size: 9px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    padding: 2px 7px;
-    border-radius: 3px;
-    margin-right: 8px;
-    flex-shrink: 0;
-  }
-  .tag-foto { background: #EFF6EC; color: #3A7A26; }
-  .tag-reels { background: #FEF3E8; color: #B55E20; }
-  .tag-produto { background: #EAF0FE; color: #2B52B8; }
-  .tag-pessoas { background: #F4EBF9; color: #7A2DAD; }
-
-  /* Responsividade Timeline */
-  @media (max-width: 600px) {
-    .tl-dia { grid-template-columns: 70px 1fr; }
-    .tl-dia-label { padding: 12px 6px; }
-    .tl-dia-num { font-size: 22px; }
-    .tl-slot { grid-template-columns: 1fr; border-bottom: 1px solid rgba(59,31,14,0.08); }
-    .tl-hora {
-      justify-content: flex-start;
-      padding: 8px 16px;
-      border-right: none;
-      border-bottom: 1px solid var(--bege-escuro);
-    }
-    .tl-atividade { padding: 12px 16px; }
+    padding: 6px 12px;
   }
 
-  /* ── TABELA DE PLANOS (DESKTOP) ── */
-  .table-wrapper {
-    margin-top: 32px;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(59,31,14,0.05);
-    background: white;
-  }
-  .plano-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  .plano-table th, .plano-table td {
-    padding: 16px 20px;
-    text-align: center;
+  .plano-card-head {
+    padding: 24px 22px 20px;
     border-bottom: 1px solid rgba(59,31,14,0.08);
   }
-  .plano-table td {
-    font-size: 13px;
-    color: var(--marrom-medio);
+
+  .plano-card.destaque .plano-card-head {
+    background: var(--terracota);
+    border-bottom-color: rgba(255,255,255,0.15);
   }
-  .plano-table tbody tr:last-child td {
-    border-bottom: none;
-  }
-  .plano-table th:first-child, .plano-table td:first-child {
-    text-align: left;
-    font-weight: 600;
-    color: var(--marrom);
-    width: 28%;
-    background: #FAFAFA;
-    border-right: 1px solid rgba(59,31,14,0.08);
-  }
-  .plano-table th {
-    background: var(--bege);
-    color: var(--marrom);
+
+  .plano-nome {
     font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    padding: 24px 20px;
-    position: relative;
+    font-size: 20px;
+    color: var(--marrom);
+    margin-bottom: 4px;
   }
-  .plano-table th span.sub-th {
-    display: block;
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
+
+  .plano-card.destaque .plano-nome { color: white; }
+
+  .plano-sub {
+    font-size: 11px;
     color: var(--marrom-claro);
     font-weight: 400;
-    margin-top: 4px;
+    margin-bottom: 16px;
   }
-  .plano-table th span.price-th {
-    display: block;
-    font-family: 'Inter', sans-serif;
-    font-size: 20px;
+  .plano-card.destaque .plano-sub { color: rgba(255,255,255,0.75); }
+
+  .plano-preco-bloco {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .plano-cifrao {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--terracota);
+  }
+  .plano-card.destaque .plano-cifrao { color: white; }
+
+  .plano-valor {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
     font-weight: 700;
     color: var(--terracota);
-    margin-top: 8px;
+    line-height: 1;
   }
-  
-  /* Destaque para o plano do meio (Desktop) */
-  .plano-table th.col-destaque {
-    background: var(--terracota);
-    color: white;
-    border-top: 4px solid var(--marrom);
+  .plano-card.destaque .plano-valor { color: white; }
+
+  .plano-periodo {
+    font-size: 11px;
+    color: var(--marrom-claro);
+    align-self: flex-end;
+    padding-bottom: 3px;
   }
-  .plano-table th.col-destaque span.sub-th { color: rgba(255,255,255,0.8); }
-  .plano-table th.col-destaque span.price-th { color: white; }
-  .plano-table td.col-destaque {
-    background: rgba(200,121,65,0.05);
-    font-weight: 600;
-    color: var(--marrom);
+  .plano-card.destaque .plano-periodo { color: rgba(255,255,255,0.7); }
+
+  .plano-itens {
+    list-style: none;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
   }
-  
-  .plano-badge-table {
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--marrom);
-    color: var(--dourado);
-    font-size: 9px;
-    font-family: 'Inter', sans-serif;
+
+  .plano-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .plano-item-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
     font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .plano-item-icon.sim {
+    background: rgba(200,121,65,0.12);
+    color: var(--terracota);
+    border: 1px solid rgba(200,121,65,0.25);
+  }
+  .plano-item-icon.nao {
+    background: rgba(59,31,14,0.04);
+    color: #C8C0B8;
+    border: 1px solid rgba(59,31,14,0.07);
+  }
+
+  .plano-card.destaque .plano-item-icon.sim {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border-color: rgba(255,255,255,0.3);
+  }
+  .plano-card.destaque .plano-item-icon.nao {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.35);
+    border-color: rgba(255,255,255,0.1);
+  }
+
+  .plano-item-texto {
+    flex: 1;
+  }
+
+  .plano-item-label {
+    font-size: 11px;
+    color: var(--marrom-claro);
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 4px 12px;
-    border-radius: 12px;
-    white-space: nowrap;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 1px;
+  }
+  .plano-card.destaque .plano-item-label { color: rgba(255,255,255,0.7); }
+
+  .plano-item-valor {
+    font-size: 13px;
+    color: var(--marrom);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .plano-card.destaque .plano-item-valor { color: white; }
+
+  .plano-item-valor.nao {
+    color: #C8C0B8;
+    font-weight: 400;
+  }
+  .plano-card.destaque .plano-item-valor.nao { color: rgba(255,255,255,0.35); font-weight: 400; }
+
+  .plano-deslocamento {
+    margin: 0 22px 20px;
+    background: var(--bege);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 11px;
+    color: var(--marrom-claro);
+    text-align: center;
+    line-height: 1.4;
+  }
+  .plano-card.destaque .plano-deslocamento {
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.75);
+  }
+  .plano-card.destaque .plano-deslocamento strong { color: white; }
+  .plano-deslocamento strong {
+    color: var(--marrom);
+    font-weight: 600;
   }
 
-  .icon-yes { color: var(--dourado); font-weight: bold; font-size: 16px; display: block; margin-bottom: 2px;}
-  .icon-no { color: #dcdcdc; font-size: 16px; }
-
-  /* ── TABELA DE PLANOS (RESPONSIVO/MOBILE) ── */
-  @media (max-width: 768px) {
-    .table-wrapper {
-      box-shadow: none;
-      border-radius: 0;
-      background: transparent;
-      margin-top: 24px;
-    }
-    .plano-table { 
-      border-collapse: separate; 
-      border-spacing: 0; 
-      background: transparent; 
-    }
-    .plano-table thead { display: none; }
-    
-    /* Cria um bloco isolado para cada funcionalidade (cada tr vira um card) */
-    .plano-table tbody tr {
-      display: block;
-      background: white;
-      border-radius: 12px;
-      border: 1px solid rgba(59,31,14,0.08);
-      box-shadow: 0 2px 12px rgba(59,31,14,0.04);
-      margin-bottom: 24px;
-      overflow: hidden;
-    }
-    .plano-table td {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      text-align: right;
-      padding: 12px 16px;
-      border-bottom: 1px solid rgba(59,31,14,0.05);
-    }
-    .plano-table td:last-child { border-bottom: none; }
-
-    /* O nome da funcionalidade vira o cabeçalho do bloco */
-    .plano-table td:first-child {
-      display: block;
-      text-align: left;
-      background: var(--bege);
-      color: var(--marrom);
-      font-family: 'Playfair Display', serif;
-      font-size: 16px;
-      font-weight: 700;
-      border-bottom: 1px solid var(--bege-escuro);
-      border-right: none;
-      width: 100%;
-    }
-
-    /* Insere o nome do plano antes do texto no celular */
-    .plano-table td:not(:first-child)::before {
-      content: attr(data-plan);
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--marrom-claro);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-right: 12px;
-      text-align: left;
-    }
-    .plano-table td.col-destaque::before { color: var(--terracota); }
-    .plano-table td.col-destaque { background: rgba(200,121,65,0.04); }
-    
-    .icon-yes { display: inline-block; margin: 0; }
+  hr.sep {
+    border: none;
+    border-top: 1px solid rgba(59,31,14,0.08);
+    margin: 0;
   }
 
   /* ── FOOTER ── */
@@ -654,7 +571,6 @@
     background: var(--marrom);
     text-align: center;
     padding: 32px 24px;
-    margin-top: 0;
   }
   .footer-ornament {
     display: flex;
@@ -671,10 +587,122 @@
   }
   footer strong { color: var(--dourado); }
 
-  hr.sep {
-    border: none;
-    border-top: 1px solid rgba(59,31,14,0.08);
-    margin: 0;
+  /* ════════════════════════════════════════
+     RESPONSIVIDADE
+  ════════════════════════════════════════ */
+
+  /* Tablet (≤768px) */
+  @media (max-width: 768px) {
+
+    .sec { padding: 36px 0 30px; }
+    .planos-grid { grid-template-columns: 1fr; gap: 14px; }
+    .plano-valor { font-size: 34px; }
+
+    .table-wrapper {
+      box-shadow: none;
+      border-radius: 0;
+      background: transparent;
+      margin-top: 20px;
+    }
+    .plano-table {
+      border-collapse: separate;
+      border-spacing: 0;
+      background: transparent;
+    }
+    .plano-table thead { display: none; }
+
+    .plano-table tbody tr {
+      display: block;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid rgba(59,31,14,0.08);
+      box-shadow: 0 2px 12px rgba(59,31,14,0.04);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .plano-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: right;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(59,31,14,0.05);
+    }
+    .plano-table td:last-child { border-bottom: none; }
+
+    .plano-table td:first-child {
+      display: block;
+      text-align: left;
+      background: var(--bege);
+      color: var(--marrom);
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--bege-escuro);
+      border-right: none;
+      width: 100%;
+    }
+    .plano-table td:not(:first-child)::before {
+      content: attr(data-plan);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--marrom-claro);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: left;
+      flex-shrink: 0;
+      margin-right: 12px;
+    }
+    .plano-table td.col-destaque::before { color: var(--terracota); }
+    .plano-table td.col-destaque { background: rgba(200,121,65,0.04); }
+    .icon-yes { display: inline-block; margin: 0; }
+  }
+
+  /* Mobile grande (≤600px) */
+  @media (max-width: 600px) {
+    .reels-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Mobile (≤480px) */
+  @media (max-width: 480px) {
+
+    .header { padding: 40px 16px 36px; }
+    .header-badges { gap: 6px; }
+    .badge { font-size: 10px; padding: 4px 10px; }
+
+    .wrap { padding: 0 16px; }
+
+    .sec { padding: 28px 0 24px; }
+
+    .box-grid { grid-template-columns: 1fr; }
+    .box-item {
+      border-right: none !important;
+    }
+    .box-item:nth-last-child(-n+2) {
+      border-bottom: 1px solid rgba(59,31,14,0.06);
+    }
+    .box-item:last-child {
+      border-bottom: none !important;
+    }
+
+    .box-price-footer { padding: 16px 16px; font-size: 13px; }
+    .box-price-footer em { font-size: 19px; }
+
+    .reel-card-top { padding: 16px 16px 0; gap: 10px; }
+    .reel-card-body { padding: 12px 16px 16px; }
+
+    .plano-badge-table { font-size: 8px; padding: 3px 8px; }
+
+    footer { padding: 24px 16px; }
+  }
+
+  /* Mobile pequeno (≤360px) */
+  @media (max-width: 360px) {
+    .header h1 { font-size: 24px; }
+    .badge { font-size: 9px; padding: 4px 8px; }
+    .sec-title { font-size: 19px; }
+    .box-nome { font-size: 12px; }
   }
 </style>
 </head>
@@ -687,13 +715,13 @@
     <div class="ornament-icon">☕</div>
     <div class="ornament-line"></div>
   </div>
-  <div class="header-eyebrow">Documento de trabalho · Produção</div>
+  <div class="header-eyebrow">Documento de trabalho - Produção</div>
   <h1>Plano de <em>Captação</em></h1>
-  <p class="header-sub">Cafeteria Colonial · Pedro II, Piauí · @cafeteria.colonial</p>
+  <p class="header-sub">Cafeteria Colonial - Pedro II, Piauí - @cafeteria.colonial</p>
   <div class="header-badges">
     <span class="badge">📅 2 dias de captação</span>
     <span class="badge">🎬 4 Reels</span>
-    <span class="badge">📸 15–20 fotos</span>
+    <span class="badge">📸 15-20 fotos</span>
     <span class="badge">👥 Conceição + equipe + clientes</span>
   </div>
 </div>
@@ -740,7 +768,6 @@
           </div>
         </div>
       </div>
-      
       <div class="box-price-footer">
         Valor do investimento mensal: <em>R$ 178,00</em>
         <div class="box-price-sub">(Inclusa taxa de deslocamento de R$ 28,00 referente aos 2 dias)</div>
@@ -756,12 +783,12 @@
     <span class="sec-label"><span class="sec-label-dot"></span>Fotografias</span>
     <h2 class="sec-title">O que fotografar</h2>
     <div class="sec-rule"></div>
-    <p class="sec-desc">Saia dos 2 dias com <strong>15 a 20 fotos aprovadas</strong> — estoque suficiente para ~4 semanas de feed sem repetir. Priorize sempre a luz natural.</p>
+    <p class="sec-desc">Saia dos 2 dias com <strong>15 a 20 fotos aprovadas</strong> - estoque suficiente para ~4 semanas de feed sem repetir. Priorize sempre a luz natural.</p>
 
     <div class="content-box">
       <div class="box-header">
         <span class="box-header-title">Categorias de foto</span>
-        <span class="box-tag">5 categorias · 3–4 fotos cada</span>
+        <span class="box-tag">5 categorias - 3-4 fotos cada</span>
       </div>
       <div class="box-grid">
         <div class="box-item">
@@ -775,7 +802,7 @@
           <div class="box-icon">🏡</div>
           <div>
             <div class="box-nome">Ambiente & luz</div>
-            <div class="box-desc">Mesa posta com luz natural. Detalhes da decoração colonial — madeira, xícara, texturas.</div>
+            <div class="box-desc">Mesa posta com luz natural. Detalhes da decoração colonial - madeira, xícara, texturas.</div>
           </div>
         </div>
         <div class="box-item">
@@ -818,7 +845,7 @@
     <span class="sec-label"><span class="sec-label-dot"></span>Vídeos para Reels</span>
     <h2 class="sec-title">Os 4 Reels</h2>
     <div class="sec-rule"></div>
-    <p class="sec-desc">Dois Reels por dia. Os do Dia 1 focam no espaço e no prato / bebida. Os do Dia 2 trazem as pessoas — Conceição, equipe e clientes.</p>
+    <p class="sec-desc">Dois Reels por dia. Os do Dia 1 focam no espaço e no prato / bebida. Os do Dia 2 trazem as pessoas - Conceição, equipe e clientes.</p>
 
     <div class="reels-grid">
 
@@ -865,7 +892,7 @@
           </div>
         </div>
         <div class="reel-card-body">
-          <p class="reel-desc">Processo do café coado do início ao fim — close nas mãos, no vapor, no copo. Sem fala. Letreiro em cada etapa.</p>
+          <p class="reel-desc">Processo do café coado do início ao fim - close nas mãos, no vapor, no copo. Sem fala. Letreiro em cada etapa.</p>
           <div>
             <div class="cenas-label">Sequência de cenas</div>
             <ul class="cenas-list">
@@ -934,134 +961,200 @@
         </div>
       </div>
 
-    </div></div>
-</div>
-
-<hr class="sep">
-
-<div class="sec-dark">
-  <div class="wrap">
-    <span class="sec-label sec-label-light"><span class="sec-label-dot"></span>Organização</span>
-    <h2 class="sec-title sec-title-light">Ordem dos dias</h2>
-    <div class="sec-rule"></div>
-    <p class="sec-desc sec-desc-light">Comece sempre pelo ambiente vazio — luz limpa, sem movimento. Deixe os takes com pessoas para depois que o espaço já estiver organizado.</p>
-
-    <div class="timeline">
-      <div class="tl-dia">
-        <div class="tl-dia-label">
-          <div class="tl-dia-num">1</div>
-          <div class="tl-dia-nome">Dia um</div>
-        </div>
-        <div class="tl-slots">
-          <div class="tl-slot">
-            <div class="tl-hora">08h – 09h</div>
-            <div class="tl-atividade"><span class="tl-tag tag-foto">Foto</span> Ambiente vazio com luz natural — mesas, detalhes, decoração colonial</div>
-          </div>
-          <div class="tl-slot">
-            <div class="tl-hora">09h – 10h</div>
-            <div class="tl-atividade"><span class="tl-tag tag-reels">Reels</span> Reel 1 (tour pelo espaço) + Reel 2 (preparo do café)</div>
-          </div>
-          <div class="tl-slot">
-            <div class="tl-hora">10h – 11h</div>
-            <div class="tl-atividade"><span class="tl-tag tag-produto">Prato / Bebida</span> Fotos de prato / bebida no balcão — café, waffle, croissant, pão de queijo</div>
-          </div>
-        </div>
-      </div>
-      <div class="tl-dia">
-        <div class="tl-dia-label">
-          <div class="tl-dia-num">2</div>
-          <div class="tl-dia-nome">Dia dois</div>
-        </div>
-        <div class="tl-slots">
-          <div class="tl-slot">
-            <div class="tl-hora">08h – 09h</div>
-            <div class="tl-atividade"><span class="tl-tag tag-foto">Foto</span> Fotos da Conceição no espaço — balcão, servindo, poses naturais</div>
-          </div>
-          <div class="tl-slot">
-            <div class="tl-hora">09h – 10h</div>
-            <div class="tl-atividade"><span class="tl-tag tag-reels">Reels</span> Reel 3 — Depoimento da Conceição (gravar 2–3 takes)</div>
-          </div>
-          <div class="tl-slot">
-            <div class="tl-hora">10h – 11h30</div>
-            <div class="tl-atividade"><span class="tl-tag tag-pessoas">Pessoas</span> Reel 4 (cliente) + fotos com movimento real no espaço</div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>
+
+<hr class="sep">
 
 <div class="sec" style="background: white;">
   <div class="wrap">
     <span class="sec-label"><span class="sec-label-dot"></span>Próximos Passos</span>
     <h2 class="sec-title">Evolução e Planos</h2>
     <div class="sec-rule"></div>
-    <p class="sec-desc">O plano Essencial é perfeito para organizar a casa. Mas se o objetivo é criar uma presença constante nas redes, confira o comparativo lado a lado das opções de upgrade. Os valores <strong>já incluem a taxa de deslocamento</strong> para todos os dias.</p>
+    <p class="sec-desc">O plano Essencial é perfeito para organizar a casa. Se o objetivo é criar uma presença constante nas redes, confira as opções abaixo. Os valores <strong>já incluem a taxa de deslocamento</strong> para todos os dias.</p>
 
-    <div class="table-wrapper">
-      <table class="plano-table">
-        <thead>
-          <tr>
-            <th>Benefícios Entregues</th>
-            <th>
-              Essencial
-              <span class="sub-th">Manter o feed ativo</span>
-              <span class="price-th">R$ 178</span>
-            </th>
-            <th class="col-destaque">
-              <div class="plano-badge-table">Melhor Custo-Benefício</div>
-              Presença
-              <span class="sub-th">Visita semanal e stories</span>
-              <span class="price-th">R$ 318</span>
-            </th>
-            <th>
-              Completo
-              <span class="sub-th">Autoridade e volume máximo</span>
-              <span class="price-th">R$ 547</span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Dias de Captação Presencial</td>
-            <td data-plan="Essencial (R$ 178)">2 captações</td>
-            <td class="col-destaque" data-plan="Presença (R$ 318)">4 captações (1x/semana)</td>
-            <td data-plan="Completo (R$ 547)">8 captações (2x/semana)</td>
-          </tr>
-          <tr>
-            <td>Taxa de Deslocamento</td>
-            <td data-plan="Essencial (R$ 178)">Inclusa (R$ 28)</td>
-            <td class="col-destaque" data-plan="Presença (R$ 318)">Inclusa (R$ 56)</td>
-            <td data-plan="Completo (R$ 547)">Inclusa (R$ 112)</td>
-          </tr>
-          <tr>
-            <td>Vídeos (Reels) Finalizados</td>
-            <td data-plan="Essencial (R$ 178)">4 vídeos</td>
-            <td class="col-destaque" data-plan="Presença (R$ 318)">8 vídeos</td>
-            <td data-plan="Completo (R$ 547)">16 vídeos</td>
-          </tr>
-          <tr>
-            <td>Fotografias Tratadas</td>
-            <td data-plan="Essencial (R$ 178)">15 a 20 fotos</td>
-            <td class="col-destaque" data-plan="Presença (R$ 318)">40 fotos</td>
-            <td data-plan="Completo (R$ 547)">Ilimitadas (no dia)</td>
-          </tr>
-          <tr>
-            <td>Cobertura de Stories in loco</td>
-            <td data-plan="Essencial (R$ 178)"><span class="icon-no">×</span></td>
-            <td class="col-destaque" data-plan="Presença (R$ 318)"><span class="icon-yes">✓</span> Nos dias de visita</td>
-            <td data-plan="Completo (R$ 547)"><span class="icon-yes">✓</span> Foco em vendas</td>
-          </tr>
-          <tr>
-            <td>Reunião de Alinhamento</td>
-            <td data-plan="Essencial (R$ 178)"><span class="icon-no">×</span></td>
-            <td class="col-destaque" data-plan="Presença (R$ 318)"><span class="icon-no">×</span></td>
-            <td data-plan="Completo (R$ 547)"><span class="icon-yes">✓</span> 1 vez ao mês</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="planos-grid">
+
+      <div class="plano-card">
+        <div class="plano-card-head">
+          <div class="plano-nome">Essencial</div>
+          <div class="plano-sub">Manter o feed ativo</div>
+          <div class="plano-preco-bloco">
+            <span class="plano-cifrao">R$</span>
+            <span class="plano-valor">178</span>
+            <span class="plano-periodo">/mês</span>
+          </div>
+        </div>
+        <ul class="plano-itens">
+          <li class="plano-item">
+            <div class="plano-item-icon sim">✓</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Captações presenciais</span>
+              <span class="plano-item-valor">2 dias por mês</span>
+            </div>
+          </li>
+          <li class="plano-item">
+            <div class="plano-item-icon sim">✓</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Taxa de deslocamento</span>
+              <span class="plano-item-valor">Inclusa · R$ 28</span>
+            </div>
+          </li>
+          <li class="plano-item">
+            <div class="plano-item-icon sim">✓</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Reels finalizados</span>
+              <span class="plano-item-valor">4 vídeos</span>
+            </div>
+          </li>
+          <li class="plano-item">
+            <div class="plano-item-icon sim">✓</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Fotografias tratadas</span>
+              <span class="plano-item-valor">15 a 20 fotos</span>
+            </div>
+          </li>
+          <li class="plano-item">
+            <div class="plano-item-icon nao">×</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Stories in loco</span>
+              <span class="plano-item-valor nao">Não incluso</span>
+            </div>
+          </li>
+          <li class="plano-item">
+            <div class="plano-item-icon nao">×</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Reunião de alinhamento</span>
+              <span class="plano-item-valor nao">Não incluso</span>
+            </div>
+          </li>
+        </ul>
+        <div class="plano-deslocamento">
+          Deslocamento incluso: <strong>R$ 28</strong> (2 dias)
+        </div>
+      </div>
+
+      <div class="plano-card destaque">
+        <div class="plano-destaque-badge">⭐ Melhor Custo-Benefício</div>
+        <div class="plano-card-head">
+          <div class="plano-nome">Presença</div>
+          <div class="plano-sub">Visita semanal e stories</div>
+          <div class="plano-preco-bloco">
+            <span class="plano-cifrao">R$</span>
+            <span class="plano-valor">318</span>
+            <span class="plano-periodo">/mês</span>
+          </div>
+        </div>
+        <ul class="plano-itens">
+          <li class="plano-item">
+            <div class="plano-item-icon sim">✓</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Captações presenciais</span>
+              <span class="plano-item-valor">4 dias · 1x por semana</span>
+            </div>
+          </li>
+          <li class="plano-item">
+            <div class="plano-item-icon sim">✓</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Taxa de deslocamento</span>
+              <span class="plano-item-valor">Inclusa · R$ 56</span>
+            </div>
+          </li>
+          <li class="plano-item">
+            <div class="plano-item-icon sim">✓</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Reels finalizados</span>
+              <span class="plano-item-valor">8 vídeos</span>
+            </div>
+          </li>
+          <li class="plano-item">
+            <div class="plano-item-icon sim">✓</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Fotografias tratadas</span>
+              <span class="plano-item-valor">40 fotos</span>
+            </div>
+          </li>
+          <li class="plano-item">
+            <div class="plano-item-icon sim">✓</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Stories in loco</span>
+              <span class="plano-item-valor">Nos dias de visita</span>
+            </div>
+          </li>
+          <li class="plano-item">
+            <div class="plano-item-icon nao">×</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Reunião de alinhamento</span>
+              <span class="plano-item-valor nao">Não incluso</span>
+            </div>
+          </li>
+        </ul>
+        <div class="plano-deslocamento">
+          Deslocamento incluso: <strong>R$ 56</strong> (4 dias)
+        </div>
+      </div>
+
+      <div class="plano-card">
+        <div class="plano-card-head">
+          <div class="plano-nome">Completo</div>
+          <div class="plano-sub">Autoridade e volume máximo</div>
+          <div class="plano-preco-bloco">
+            <span class="plano-cifrao">R$</span>
+            <span class="plano-valor">547</span>
+            <span class="plano-periodo">/mês</span>
+          </div>
+        </div>
+        <ul class="plano-itens">
+          <li class="plano-item">
+            <div class="plano-item-icon sim">✓</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Captações presenciais</span>
+              <span class="plano-item-valor">8 dias · 2x por semana</span>
+            </div>
+          </li>
+          <li class="plano-item">
+            <div class="plano-item-icon sim">✓</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Taxa de deslocamento</span>
+              <span class="plano-item-valor">Inclusa · R$ 112</span>
+            </div>
+          </li>
+          <li class="plano-item">
+            <div class="plano-item-icon sim">✓</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Reels finalizados</span>
+              <span class="plano-item-valor">16 vídeos</span>
+            </div>
+          </li>
+          <li class="plano-item">
+            <div class="plano-item-icon sim">✓</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Fotografias tratadas</span>
+              <span class="plano-item-valor">Ilimitadas no dia</span>
+            </div>
+          </li>
+          <li class="plano-item">
+            <div class="plano-item-icon sim">✓</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Stories in loco</span>
+              <span class="plano-item-valor">Foco em vendas</span>
+            </div>
+          </li>
+          <li class="plano-item">
+            <div class="plano-item-icon sim">✓</div>
+            <div class="plano-item-texto">
+              <span class="plano-item-label">Reunião de alinhamento</span>
+              <span class="plano-item-valor">1 vez ao mês</span>
+            </div>
+          </li>
+        </ul>
+        <div class="plano-deslocamento">
+          Deslocamento incluso: <strong>R$ 112</strong> (8 dias)
+        </div>
+      </div>
+
     </div>
-
   </div>
 </div>
 
@@ -1071,8 +1164,8 @@
     <span style="font-size:16px;">☕</span>
     <div class="footer-line"></div>
   </div>
-  <p>Plano de captação · <strong>Cafeteria Colonial</strong> · Pedro II, Piauí</p>
-  <p style="margin-top:4px;">Galeria Colonial, ao lado da matriz · @cafeteria.colonial</p>
+  <p>Plano de captação - <strong>Cafeteria Colonial</strong> - Pedro II, Piauí</p>
+  <p style="margin-top:4px;">Galeria Colonial, ao lado da matriz - @cafeteria.colonial</p>
 </footer>
 
 </body>
