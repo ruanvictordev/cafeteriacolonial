@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plano de Captação — Cafeteria Colonial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --marrom:        #3B1F0E;
+    --marrom-medio:  #6B3A1F;
+    --marrom-claro:  #8B5A30;
+    --bege:          #F5E6C8;
+    --bege-escuro:   #E8D0A4;
+    --terracota:     #C87941;
+    --dourado:       #D4A55A;
+    --offwhite:      #FAF5EE;
+    --texto:         #2A1506;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--offwhite);
+    font-family: 'Inter', sans-serif;
+    color: var(--texto);
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--marrom);
+    padding: 56px 32px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header-grain {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  .header-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .ornament-line {
+    width: 48px;
+    height: 1px;
+    background: var(--dourado);
+    opacity: 0.6;
+  }
+  .ornament-icon {
+    font-size: 20px;
+  }
+  .header-eyebrow {
+    font-size: 10px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--dourado);
+    font-weight: 600;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 6vw, 50px);
+    color: var(--bege);
+    line-height: 1.15;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .header h1 em {
+    color: var(--dourado);
+    font-style: italic;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: rgba(245,230,200,0.55);
+    font-weight: 300;
+    letter-spacing: 0.3px;
+    margin-top: 6px;
+    position: relative;
+  }
+  .header-badges {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+    position: relative;
+  }
+  .badge {
+    background: rgba(245,230,200,0.1);
+    border: 1px solid rgba(212,165,90,0.3);
+    color: var(--bege);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── WRAPPER ── */
+  .wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .sec {
+    padding: 48px 0 40px;
+  }
+  .sec-dark {
+    background: var(--marrom);
+    padding: 48px 24px 44px;
+    margin: 0;
+  }
+  .sec-dark .wrap { padding: 0; }
+
+  .sec-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--terracota);
+    margin-bottom: 8px;
+  }
+  .sec-label-light { color: var(--dourado); }
+  .sec-label-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+
+  .sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 4vw, 30px);
+    color: var(--marrom);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .sec-title-light { color: var(--bege); }
+
+  .sec-rule {
+    width: 40px; height: 2px;
+    background: var(--dourado);
+    border-radius: 2px;
+    margin: 12px 0 20px;
+  }
+
+  .sec-desc {
+    font-size: 13px;
+    color: var(--marrom-claro);
+    line-height: 1.7;
+    max-width: 580px;
+    margin-bottom: 28px;
+  }
+  .sec-desc-light { color: rgba(245,230,200,0.65); }
+
+  /* ── BOXES PADRÃO (Fotos, Escopo) ── */
+  .content-box {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid rgba(59,31,14,0.08);
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(59,31,14,0.06);
+  }
+  .box-header {
+    background: var(--bege);
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--bege-escuro);
+  }
+  .box-header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--marrom);
+  }
+  .box-tag {
+    font-size: 12px;
+    background: var(--terracota);
+    color: white;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .box-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  @media (max-width: 500px) { .box-grid { grid-template-columns: 1fr; } }
+  .box-item {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(59,31,14,0.06);
+    border-right: 1px solid rgba(59,31,14,0.06);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .box-item:nth-child(even) { border-right: none; }
+  .box-item:nth-last-child(-n+2) { border-bottom: none; }
+  .box-icon {
+    width: 36px; height: 36px;
+    background: var(--bege);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    border: 1px solid var(--bege-escuro);
+  }
+  .box-nome {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--marrom);
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+  .box-desc {
+    font-size: 11px;
+    color: var(--marrom-claro);
+    line-height: 1.5;
+  }
+  
+  /* ── HIGHLIGHT PREÇO ── */
+  .box-price-footer {
+    background: var(--terracota);
+    color: var(--offwhite);
+    text-align: center;
+    padding: 18px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  .box-price-footer em {
+    font-family: 'Playfair Display', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    color: white;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* ── REELS CARDS ── */
+  .reels-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 580px) { .reels-grid { grid-template-columns: 1fr; } }
+
+  .reel-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(59,31,14,0.07);
+    border: 1px solid rgba(59,31,14,0.07);
+    display: flex;
+    flex-direction: column;
+  }
+  .reel-card-top {
+    padding: 20px 20px 0;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  /* CARIMBO — signature element */
+  .carimbo {
+    width: 54px; height: 54px;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .carimbo svg {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+  }
+  .carimbo-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--terracota);
+    position: relative;
+    z-index: 1;
+    line-height: 1;
+  }
+
+  .reel-card-meta { flex: 1; }
+  .reel-dia-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--terracota);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .reel-titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--marrom);
+    line-height: 1.3;
+  }
+
+  .reel-card-body {
+    padding: 14px 20px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .reel-desc {
+    font-size: 12px;
+    color: var(--marrom-claro);
+    line-height: 1.65;
+  }
+
+  .cenas-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--dourado);
+    margin-bottom: 6px;
+  }
+  .cenas-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .cenas-list li {
+    font-size: 11px;
+    color: var(--marrom-medio);
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    line-height: 1.5;
+  }
+  .cenas-list li::before {
+    content: '→';
+    color: var(--terracota);
+    font-size: 11px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .tl-dia {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 0;
+  }
+  .tl-dia-label {
+    background: var(--marrom);
+    color: var(--bege);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 10px;
+    text-align: center;
+    position: relative;
+  }
+  .tl-dia-label::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 0; height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid var(--marrom);
+  }
+  .tl-dia-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--dourado);
+    line-height: 1;
+  }
+  .tl-dia-nome {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(245,230,200,0.6);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+  .tl-slots {
+    border-bottom: 1px solid rgba(59,31,14,0.08);
+  }
+  .tl-slot {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    border-bottom: 1px solid rgba(59,31,14,0.06);
+  }
+  .tl-slot:last-child { border-bottom: none; }
+  .tl-hora {
+    background: var(--bege);
+    padding: 12px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--terracota);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-right: 1px solid var(--bege-escuro);
+    font-variant-numeric: tabular-nums;
+  }
+  .tl-atividade {
+    padding: 12px 16px;
+    font-size: 12px;
+    color: var(--texto);
+    display: flex;
+    align-items: center;
+    line-height: 1.5;
+    background: white;
+  }
+  .tl-tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+  .tag-foto { background: #EFF6EC; color: #3A7A26; }
+  .tag-reels { background: #FEF3E8; color: #B55E20; }
+  .tag-produto { background: #EAF0FE; color: #2B52B8; }
+  .tag-pessoas { background: #F4EBF9; color: #7A2DAD; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--marrom);
+    text-align: center;
+    padding: 32px 24px;
+    margin-top: 0;
+  }
+  .footer-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .footer-line { width: 40px; height: 1px; background: rgba(212,165,90,0.3); }
+  footer p {
+    font-size: 12px;
+    color: rgba(245,230,200,0.4);
+    letter-spacing: 0.5px;
+  }
+  footer strong { color: var(--dourado); }
+
+  hr.sep {
+    border: none;
+    border-top: 1px solid rgba(59,31,14,0.08);
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-grain"></div>
+  <div class="header-ornament">
+    <div class="ornament-line"></div>
+    <div class="ornament-icon">☕</div>
+    <div class="ornament-line"></div>
+  </div>
+  <div class="header-eyebrow">Documento de trabalho · Produção</div>
+  <h1>Plano de <em>Captação</em></h1>
+  <p class="header-sub">Cafeteria Colonial · Pedro II, Piauí · @cafeteria.colonial</p>
+  <div class="header-badges">
+    <span class="badge">📅 2 dias de captação</span>
+    <span class="badge">🎬 4 Reels</span>
+    <span class="badge">📸 15–20 fotos</span>
+    <span class="badge">👥 Conceição + equipe + clientes</span>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <span class="sec-label"><span class="sec-label-dot"></span>O Pacote</span>
+    <h2 class="sec-title">Resumo das Entregas</h2>
+    <div class="sec-rule"></div>
+    <p class="sec-desc">Este plano de captação faz parte do pacote de acompanhamento mensal da Cafeteria Colonial. Abaixo estão os detalhes do escopo previsto para este ciclo.</p>
+
+    <div class="content-box">
+      <div class="box-header">
+        <span class="box-header-title">Escopo do Projeto</span>
+        <span class="box-tag">Recorrência Mensal</span>
+      </div>
+      <div class="box-grid">
+        <div class="box-item">
+          <div class="box-icon">📅</div>
+          <div>
+            <div class="box-nome">2 Dias de Captação</div>
+            <div class="box-desc">Visitas divididas estrategicamente para capturar o ambiente limpo/vazio e momentos com movimento real de clientes.</div>
+          </div>
+        </div>
+        <div class="box-item">
+          <div class="box-icon">🎬</div>
+          <div>
+            <div class="box-nome">4 Vídeos para Reels</div>
+            <div class="box-desc">Captação, roteiro e edição finalizados para os Reels. Planejados para manter a periodicidade nas redes.</div>
+          </div>
+        </div>
+        <div class="box-item">
+          <div class="box-icon">📸</div>
+          <div>
+            <div class="box-nome">15 a 20 Fotografias</div>
+            <div class="box-desc">Imagens em alta resolução tratadas, divididas em produtos, equipe e ambiente para o feed e stories.</div>
+          </div>
+        </div>
+        <div class="box-item">
+          <div class="box-icon">🔁</div>
+          <div>
+            <div class="box-nome">Plano Mensal</div>
+            <div class="box-desc">Renovação contínua de banco de imagens, garantindo que a comunicação da cafeteria esteja sempre atualizada.</div>
+          </div>
+        </div>
+      </div>
+      <div class="box-price-footer">
+        Valor do investimento mensal: <em>R$ 150,00</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="sep">
+
+<div class="sec">
+  <div class="wrap">
+    <span class="sec-label"><span class="sec-label-dot"></span>Fotografias</span>
+    <h2 class="sec-title">O que fotografar</h2>
+    <div class="sec-rule"></div>
+    <p class="sec-desc">Saia dos 2 dias com <strong>15 a 20 fotos aprovadas</strong> — estoque suficiente para ~4 semanas de feed sem repetir. Priorize sempre a luz natural.</p>
+
+    <div class="content-box">
+      <div class="box-header">
+        <span class="box-header-title">Categorias de foto</span>
+        <span class="box-tag">5 categorias · 3–4 fotos cada</span>
+      </div>
+      <div class="box-grid">
+        <div class="box-item">
+          <div class="box-icon">☕</div>
+          <div>
+            <div class="box-nome">Prato / Bebida no balcão</div>
+            <div class="box-desc">Close e plano aberto de cafés, waffles, croissant, pão de queijo. Fundo limpo.</div>
+          </div>
+        </div>
+        <div class="box-item">
+          <div class="box-icon">🏡</div>
+          <div>
+            <div class="box-nome">Ambiente & luz</div>
+            <div class="box-desc">Mesa posta com luz natural. Detalhes da decoração colonial — madeira, xícara, texturas.</div>
+          </div>
+        </div>
+        <div class="box-item">
+          <div class="box-icon">🤎</div>
+          <div>
+            <div class="box-nome">Conceição no espaço</div>
+            <div class="box-desc">Sorrindo, servindo, no balcão. Humaniza a marca. Pelo menos 4 poses diferentes.</div>
+          </div>
+        </div>
+        <div class="box-item">
+          <div class="box-icon">🧇</div>
+          <div>
+            <div class="box-nome">Detalhes e close-up</div>
+            <div class="box-desc">Vapor do café, textura do waffle, açúcar na mesa, mãos segurando xícara.</div>
+          </div>
+        </div>
+        <div class="box-item">
+          <div class="box-icon">🏛</div>
+          <div>
+            <div class="box-nome">Fachada & entrada</div>
+            <div class="box-desc">Galeria Colonial, placa do espaço, entrada com movimento real de pessoas.</div>
+          </div>
+        </div>
+        <div class="box-item">
+          <div class="box-icon">👥</div>
+          <div>
+            <div class="box-nome">Clientes no espaço</div>
+            <div class="box-desc">Pessoas sendo atendidas, tomando café, conversando. Solicitar autorização.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="sep">
+
+<div class="sec">
+  <div class="wrap">
+    <span class="sec-label"><span class="sec-label-dot"></span>Vídeos para Reels</span>
+    <h2 class="sec-title">Os 4 Reels</h2>
+    <div class="sec-rule"></div>
+    <p class="sec-desc">Dois Reels por dia. Os do Dia 1 focam no espaço e no prato / bebida. Os do Dia 2 trazem as pessoas — Conceição, equipe e clientes.</p>
+
+    <div class="reels-grid">
+
+      <div class="reel-card">
+        <div class="reel-card-top">
+          <div class="carimbo">
+            <svg viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="27" cy="27" r="25" stroke="#C87941" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <circle cx="27" cy="27" r="20" stroke="#D4A55A" stroke-width="1"/>
+            </svg>
+            <span class="carimbo-num">1</span>
+          </div>
+          <div class="reel-card-meta">
+            <span class="reel-dia-tag">☀ Dia 1 · Manhã</span>
+            <div class="reel-titulo">Tour pelo espaço</div>
+          </div>
+        </div>
+        <div class="reel-card-body">
+          <p class="reel-desc">Câmera passeando pelo ambiente da cafeteria. Sem fala. Texto na tela: <em>"Vem conhecer a Cafeteria Colonial ☕"</em></p>
+          <div>
+            <div class="cenas-label">Sequência de cenas</div>
+            <ul class="cenas-list">
+              <li>Entrada da Galeria Colonial</li>
+              <li>Balcão com produtos expostos</li>
+              <li>Mesas e ambiente iluminado</li>
+              <li>Close em detalhe decorativo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="reel-card">
+        <div class="reel-card-top">
+          <div class="carimbo">
+            <svg viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="27" cy="27" r="25" stroke="#C87941" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <circle cx="27" cy="27" r="20" stroke="#D4A55A" stroke-width="1"/>
+            </svg>
+            <span class="carimbo-num">2</span>
+          </div>
+          <div class="reel-card-meta">
+            <span class="reel-dia-tag">☀ Dia 1 · Manhã</span>
+            <div class="reel-titulo">Preparo do café</div>
+          </div>
+        </div>
+        <div class="reel-card-body">
+          <p class="reel-desc">Processo do café coado do início ao fim — close nas mãos, no vapor, no copo. Sem fala. Letreiro em cada etapa.</p>
+          <div>
+            <div class="cenas-label">Sequência de cenas</div>
+            <ul class="cenas-list">
+              <li>Pó de café no filtro</li>
+              <li>Água quente sendo derramada</li>
+              <li>Café caindo na xícara</li>
+              <li>Xícara pronta sendo entregue</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="reel-card">
+        <div class="reel-card-top">
+          <div class="carimbo">
+            <svg viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="27" cy="27" r="25" stroke="#C87941" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <circle cx="27" cy="27" r="20" stroke="#D4A55A" stroke-width="1"/>
+            </svg>
+            <span class="carimbo-num">3</span>
+          </div>
+          <div class="reel-card-meta">
+            <span class="reel-dia-tag">🤎 Dia 2 · Manhã</span>
+            <div class="reel-titulo">Depoimento da Conceição</div>
+          </div>
+        </div>
+        <div class="reel-card-body">
+          <p class="reel-desc">Conceição fala diretamente para a câmera sobre a visita do chef e o Festival de Inverno. Roteiro pré-definido com espaços abertos.</p>
+          <div>
+            <div class="cenas-label">Pontos do roteiro</div>
+            <ul class="cenas-list">
+              <li>Abertura sobre o festival</li>
+              <li>A visita do chef e as orientações</li>
+              <li>O resultado durante o festival</li>
+              <li>Convite para visitar a cafeteria</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="reel-card">
+        <div class="reel-card-top">
+          <div class="carimbo">
+            <svg viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="27" cy="27" r="25" stroke="#C87941" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <circle cx="27" cy="27" r="20" stroke="#D4A55A" stroke-width="1"/>
+            </svg>
+            <span class="carimbo-num">4</span>
+          </div>
+          <div class="reel-card-meta">
+            <span class="reel-dia-tag">🤎 Dia 2 · Movimento</span>
+            <div class="reel-titulo">Momento do cliente</div>
+          </div>
+        </div>
+        <div class="reel-card-body">
+          <p class="reel-desc">Cena real ou encenada de cliente sendo atendido, recebendo o pedido e tomando o primeiro gole. Sem fala obrigatória.</p>
+          <div>
+            <div class="cenas-label">Sequência de cenas</div>
+            <ul class="cenas-list">
+              <li>Cliente chegando e sendo recebido</li>
+              <li>Pedido sendo preparado</li>
+              <li>Entrega com sorriso</li>
+              <li>Reação do cliente ao primeiro gole</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div></div>
+</div>
+
+<hr class="sep">
+
+<div class="sec-dark">
+  <div class="wrap">
+    <span class="sec-label sec-label-light"><span class="sec-label-dot"></span>Organização</span>
+    <h2 class="sec-title sec-title-light">Ordem dos dias</h2>
+    <div class="sec-rule"></div>
+    <p class="sec-desc sec-desc-light">Comece sempre pelo ambiente vazio — luz limpa, sem movimento. Deixe os takes com pessoas para depois que o espaço já estiver organizado.</p>
+
+    <div class="timeline">
+      <div class="tl-dia">
+        <div class="tl-dia-label">
+          <div class="tl-dia-num">1</div>
+          <div class="tl-dia-nome">Dia um</div>
+        </div>
+        <div class="tl-slots">
+          <div class="tl-slot">
+            <div class="tl-hora">08h – 09h</div>
+            <div class="tl-atividade"><span class="tl-tag tag-foto">Foto</span> Ambiente vazio com luz natural — mesas, detalhes, decoração colonial</div>
+          </div>
+          <div class="tl-slot">
+            <div class="tl-hora">09h – 10h</div>
+            <div class="tl-atividade"><span class="tl-tag tag-reels">Reels</span> Reel 1 (tour pelo espaço) + Reel 2 (preparo do café)</div>
+          </div>
+          <div class="tl-slot">
+            <div class="tl-hora">10h – 11h</div>
+            <div class="tl-atividade"><span class="tl-tag tag-produto">Prato / Bebida</span> Fotos de prato / bebida no balcão — café, waffle, croissant, pão de queijo</div>
+          </div>
+        </div>
+      </div>
+      <div class="tl-dia">
+        <div class="tl-dia-label">
+          <div class="tl-dia-num">2</div>
+          <div class="tl-dia-nome">Dia dois</div>
+        </div>
+        <div class="tl-slots">
+          <div class="tl-slot">
+            <div class="tl-hora">08h – 09h</div>
+            <div class="tl-atividade"><span class="tl-tag tag-foto">Foto</span> Fotos da Conceição no espaço — balcão, servindo, poses naturais</div>
+          </div>
+          <div class="tl-slot">
+            <div class="tl-hora">09h – 10h</div>
+            <div class="tl-atividade"><span class="tl-tag tag-reels">Reels</span> Reel 3 — Depoimento da Conceição (gravar 2–3 takes)</div>
+          </div>
+          <div class="tl-slot">
+            <div class="tl-hora">10h – 11h30</div>
+            <div class="tl-atividade"><span class="tl-tag tag-pessoas">Pessoas</span> Reel 4 (cliente) + fotos com movimento real no espaço</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-ornament">
+    <div class="footer-line"></div>
+    <span style="font-size:16px;">☕</span>
+    <div class="footer-line"></div>
+  </div>
+  <p>Plano de captação · <strong>Cafeteria Colonial</strong> · Pedro II, Piauí</p>
+  <p style="margin-top:4px;">Galeria Colonial, ao lado da matriz · @cafeteria.colonial</p>
+</footer>
+
+</body>
+</html>
