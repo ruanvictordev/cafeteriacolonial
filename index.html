@@ -204,7 +204,6 @@
     grid-template-columns: 1fr 1fr;
     gap: 0;
   }
-  @media (max-width: 500px) { .box-grid { grid-template-columns: 1fr; } }
   .box-item {
     padding: 16px 20px;
     border-bottom: 1px solid rgba(59,31,14,0.06);
@@ -237,6 +236,14 @@
     font-size: 11px;
     color: var(--marrom-claro);
     line-height: 1.5;
+  }
+
+  /* Responsividade Caixas Padrão */
+  @media (max-width: 500px) { 
+    .box-grid { grid-template-columns: 1fr; } 
+    .box-item { border-right: none !important; }
+    .box-item:nth-last-child(-n+2) { border-bottom: 1px solid rgba(59,31,14,0.06); }
+    .box-item:last-child { border-bottom: none !important; }
   }
   
   /* ── HIGHLIGHT PREÇO ── */
@@ -290,7 +297,7 @@
     align-items: flex-start;
   }
 
-  /* CARIMBO — signature element */
+  /* CARIMBO */
   .carimbo {
     width: 54px; height: 54px;
     flex-shrink: 0;
@@ -467,18 +474,34 @@
   .tag-produto { background: #EAF0FE; color: #2B52B8; }
   .tag-pessoas { background: #F4EBF9; color: #7A2DAD; }
 
-  /* ── TABELA DE PLANOS (NOVO LAYOUT) ── */
+  /* Responsividade Timeline */
+  @media (max-width: 600px) {
+    .tl-dia { grid-template-columns: 70px 1fr; }
+    .tl-dia-label { padding: 12px 6px; }
+    .tl-dia-num { font-size: 22px; }
+    .tl-slot { grid-template-columns: 1fr; border-bottom: 1px solid rgba(59,31,14,0.08); }
+    .tl-hora {
+      justify-content: flex-start;
+      padding: 8px 16px;
+      border-right: none;
+      border-bottom: 1px solid var(--bege-escuro);
+    }
+    .tl-atividade { padding: 12px 16px; }
+  }
+
+  /* ── TABELA DE PLANOS (DESKTOP) ── */
   .table-wrapper {
-    overflow-x: auto;
     margin-top: 32px;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(59,31,14,0.05);
+    background: white;
   }
   .plano-table {
     width: 100%;
     border-collapse: collapse;
     background: white;
-    min-width: 650px;
+    border-radius: 12px;
+    overflow: hidden;
   }
   .plano-table th, .plano-table td {
     padding: 16px 20px;
@@ -525,18 +548,14 @@
     margin-top: 8px;
   }
   
-  /* Destaque para o plano do meio */
+  /* Destaque para o plano do meio (Desktop) */
   .plano-table th.col-destaque {
     background: var(--terracota);
     color: white;
     border-top: 4px solid var(--marrom);
   }
-  .plano-table th.col-destaque span.sub-th {
-    color: rgba(255,255,255,0.8);
-  }
-  .plano-table th.col-destaque span.price-th {
-    color: white;
-  }
+  .plano-table th.col-destaque span.sub-th { color: rgba(255,255,255,0.8); }
+  .plano-table th.col-destaque span.price-th { color: white; }
   .plano-table td.col-destaque {
     background: rgba(200,121,65,0.05);
     font-weight: 600;
@@ -562,6 +581,73 @@
 
   .icon-yes { color: var(--dourado); font-weight: bold; font-size: 16px; display: block; margin-bottom: 2px;}
   .icon-no { color: #dcdcdc; font-size: 16px; }
+
+  /* ── TABELA DE PLANOS (RESPONSIVO/MOBILE) ── */
+  @media (max-width: 768px) {
+    .table-wrapper {
+      box-shadow: none;
+      border-radius: 0;
+      background: transparent;
+      margin-top: 24px;
+    }
+    .plano-table { 
+      border-collapse: separate; 
+      border-spacing: 0; 
+      background: transparent; 
+    }
+    .plano-table thead { display: none; }
+    
+    /* Cria um bloco isolado para cada funcionalidade (cada tr vira um card) */
+    .plano-table tbody tr {
+      display: block;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid rgba(59,31,14,0.08);
+      box-shadow: 0 2px 12px rgba(59,31,14,0.04);
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+    .plano-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: right;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(59,31,14,0.05);
+    }
+    .plano-table td:last-child { border-bottom: none; }
+
+    /* O nome da funcionalidade vira o cabeçalho do bloco */
+    .plano-table td:first-child {
+      display: block;
+      text-align: left;
+      background: var(--bege);
+      color: var(--marrom);
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--bege-escuro);
+      border-right: none;
+      width: 100%;
+    }
+
+    /* Insere o nome do plano antes do texto no celular */
+    .plano-table td:not(:first-child)::before {
+      content: attr(data-plan);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--marrom-claro);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-right: 12px;
+      text-align: left;
+    }
+    .plano-table td.col-destaque::before { color: var(--terracota); }
+    .plano-table td.col-destaque { background: rgba(200,121,65,0.04); }
+    
+    .icon-yes { display: inline-block; margin: 0; }
+  }
 
   /* ── FOOTER ── */
   footer {
@@ -938,39 +1024,39 @@
         <tbody>
           <tr>
             <td>Dias de Captação Presencial</td>
-            <td>2 captações</td>
-            <td class="col-destaque">4 captações (1x/semana)</td>
-            <td>8 captações (2x/semana)</td>
+            <td data-plan="Essencial (R$ 178)">2 captações</td>
+            <td class="col-destaque" data-plan="Presença (R$ 318)">4 captações (1x/semana)</td>
+            <td data-plan="Completo (R$ 547)">8 captações (2x/semana)</td>
           </tr>
           <tr>
             <td>Taxa de Deslocamento</td>
-            <td>Inclusa (R$ 28)</td>
-            <td class="col-destaque">Inclusa (R$ 56)</td>
-            <td>Inclusa (R$ 112)</td>
+            <td data-plan="Essencial (R$ 178)">Inclusa (R$ 28)</td>
+            <td class="col-destaque" data-plan="Presença (R$ 318)">Inclusa (R$ 56)</td>
+            <td data-plan="Completo (R$ 547)">Inclusa (R$ 112)</td>
           </tr>
           <tr>
             <td>Vídeos (Reels) Finalizados</td>
-            <td>4 vídeos</td>
-            <td class="col-destaque">8 vídeos</td>
-            <td>16 vídeos</td>
+            <td data-plan="Essencial (R$ 178)">4 vídeos</td>
+            <td class="col-destaque" data-plan="Presença (R$ 318)">8 vídeos</td>
+            <td data-plan="Completo (R$ 547)">16 vídeos</td>
           </tr>
           <tr>
             <td>Fotografias Tratadas</td>
-            <td>15 a 20 fotos</td>
-            <td class="col-destaque">40 fotos</td>
-            <td>Ilimitadas (no dia)</td>
+            <td data-plan="Essencial (R$ 178)">15 a 20 fotos</td>
+            <td class="col-destaque" data-plan="Presença (R$ 318)">40 fotos</td>
+            <td data-plan="Completo (R$ 547)">Ilimitadas (no dia)</td>
           </tr>
           <tr>
             <td>Cobertura de Stories in loco</td>
-            <td><span class="icon-no">×</span></td>
-            <td class="col-destaque"><span class="icon-yes">✓</span> Nos dias de visita</td>
-            <td><span class="icon-yes">✓</span> Foco em vendas</td>
+            <td data-plan="Essencial (R$ 178)"><span class="icon-no">×</span></td>
+            <td class="col-destaque" data-plan="Presença (R$ 318)"><span class="icon-yes">✓</span> Nos dias de visita</td>
+            <td data-plan="Completo (R$ 547)"><span class="icon-yes">✓</span> Foco em vendas</td>
           </tr>
           <tr>
             <td>Reunião de Alinhamento</td>
-            <td><span class="icon-no">×</span></td>
-            <td class="col-destaque"><span class="icon-no">×</span></td>
-            <td><span class="icon-yes">✓</span> 1 vez ao mês</td>
+            <td data-plan="Essencial (R$ 178)"><span class="icon-no">×</span></td>
+            <td class="col-destaque" data-plan="Presença (R$ 318)"><span class="icon-no">×</span></td>
+            <td data-plan="Completo (R$ 547)"><span class="icon-yes">✓</span> 1 vez ao mês</td>
           </tr>
         </tbody>
       </table>
