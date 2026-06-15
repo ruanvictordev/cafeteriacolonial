@@ -467,107 +467,101 @@
   .tag-produto { background: #EAF0FE; color: #2B52B8; }
   .tag-pessoas { background: #F4EBF9; color: #7A2DAD; }
 
-  /* ── PLANOS COMPARATIVOS ── */
-  .planos-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+  /* ── TABELA DE PLANOS (NOVO LAYOUT) ── */
+  .table-wrapper {
+    overflow-x: auto;
     margin-top: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(59,31,14,0.05);
   }
-  @media (max-width: 768px) {
-    .planos-grid { grid-template-columns: 1fr; gap: 32px; }
-  }
-  .plano-card {
+  .plano-table {
+    width: 100%;
+    border-collapse: collapse;
     background: white;
-    border-radius: 16px;
-    border: 1px solid rgba(59,31,14,0.08);
-    padding: 32px 24px;
-    display: flex;
-    flex-direction: column;
+    min-width: 650px;
+  }
+  .plano-table th, .plano-table td {
+    padding: 16px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(59,31,14,0.08);
+  }
+  .plano-table td {
+    font-size: 13px;
+    color: var(--marrom-medio);
+  }
+  .plano-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  .plano-table th:first-child, .plano-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: var(--marrom);
+    width: 28%;
+    background: #FAFAFA;
+    border-right: 1px solid rgba(59,31,14,0.08);
+  }
+  .plano-table th {
+    background: var(--bege);
+    color: var(--marrom);
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    padding: 24px 20px;
     position: relative;
-    box-shadow: 0 4px 16px rgba(59,31,14,0.04);
   }
-  .plano-card.destaque {
-    border: 2px solid var(--terracota);
-    box-shadow: 0 12px 32px rgba(200,121,65,0.15);
-    transform: translateY(-8px);
+  .plano-table th span.sub-th {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--marrom-claro);
+    font-weight: 400;
+    margin-top: 4px;
   }
-  @media (max-width: 768px) {
-    .plano-card.destaque { transform: none; }
+  .plano-table th span.price-th {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--terracota);
+    margin-top: 8px;
   }
-  .plano-badge {
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
+  
+  /* Destaque para o plano do meio */
+  .plano-table th.col-destaque {
     background: var(--terracota);
     color: white;
-    font-size: 11px;
+    border-top: 4px solid var(--marrom);
+  }
+  .plano-table th.col-destaque span.sub-th {
+    color: rgba(255,255,255,0.8);
+  }
+  .plano-table th.col-destaque span.price-th {
+    color: white;
+  }
+  .plano-table td.col-destaque {
+    background: rgba(200,121,65,0.05);
+    font-weight: 600;
+    color: var(--marrom);
+  }
+  
+  .plano-badge-table {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--marrom);
+    color: var(--dourado);
+    font-size: 9px;
+    font-family: 'Inter', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 6px 16px;
-    border-radius: 20px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    white-space: nowrap;
   }
-  .plano-nome {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    color: var(--marrom);
-    text-align: center;
-    margin-bottom: 4px;
-  }
-  .plano-sub {
-    font-size: 12px;
-    color: var(--marrom-claro);
-    text-align: center;
-    margin-bottom: 24px;
-  }
-  .plano-preco {
-    text-align: center;
-    margin-bottom: 24px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid rgba(59,31,14,0.06);
-  }
-  .plano-preco span {
-    font-size: 12px;
-    color: var(--marrom-claro);
-    display: block;
-    margin-bottom: 4px;
-  }
-  .plano-preco strong {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    color: var(--terracota);
-    line-height: 1;
-  }
-  .plano-lista {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    flex: 1;
-  }
-  .plano-lista li {
-    font-size: 13px;
-    color: var(--marrom-medio);
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    line-height: 1.4;
-  }
-  .plano-lista li::before {
-    content: '✓';
-    color: var(--dourado);
-    font-weight: bold;
-    font-size: 14px;
-  }
-  .plano-lista li.nao-incluso {
-    opacity: 0.4;
-  }
-  .plano-lista li.nao-incluso::before {
-    content: '×';
-    color: #999;
-  }
+
+  .icon-yes { color: var(--dourado); font-weight: bold; font-size: 16px; display: block; margin-bottom: 2px;}
+  .icon-no { color: #dcdcdc; font-size: 16px; }
 
   /* ── FOOTER ── */
   footer {
@@ -916,58 +910,72 @@
     <span class="sec-label"><span class="sec-label-dot"></span>Próximos Passos</span>
     <h2 class="sec-title">Evolução e Planos</h2>
     <div class="sec-rule"></div>
-    <p class="sec-desc">O plano Essencial (detalhado acima) é perfeito para organizar a casa. Mas se o objetivo é criar uma presença constante e gerar desejo todas as semanas, confira as opções de upgrade. Os valores <strong>já incluem a taxa de deslocamento</strong> para todos os dias.</p>
+    <p class="sec-desc">O plano Essencial é perfeito para organizar a casa. Mas se o objetivo é criar uma presença constante nas redes, confira o comparativo lado a lado das opções de upgrade. Os valores <strong>já incluem a taxa de deslocamento</strong> para todos os dias.</p>
 
-    <div class="planos-grid">
-      <div class="plano-card">
-        <div class="plano-nome">Essencial</div>
-        <div class="plano-sub">Para manter o feed ativo</div>
-        <div class="plano-preco">
-          <span>Investimento Mensal</span>
-          <strong>R$ 178</strong>
-        </div>
-        <ul class="plano-lista">
-          <li><strong>2 captações</strong> presenciais (R$ 28 de taxa inclusa)</li>
-          <li><strong>4 Vídeos</strong> (Reels) editados</li>
-          <li><strong>15 a 20 Fotos</strong> tratadas em alta qualidade</li>
-          <li class="nao-incluso">Cobertura de Stories in loco</li>
-          <li class="nao-incluso">Reunião de alinhamento quinzenal</li>
-        </ul>
-      </div>
-
-      <div class="plano-card destaque">
-        <div class="plano-badge">Melhor Custo-Benefício</div>
-        <div class="plano-nome">Presença</div>
-        <div class="plano-sub">O dobro de material, visita semanal</div>
-        <div class="plano-preco">
-          <span>Investimento Mensal</span>
-          <strong>R$ 318</strong>
-        </div>
-        <ul class="plano-lista">
-          <li><strong>4 captações</strong> presenciais (1x na semana, R$ 56 de taxa inclusa)</li>
-          <li><strong>8 Vídeos</strong> (Reels) editados e com roteiro</li>
-          <li><strong>40 Fotos</strong> tratadas e atualizadas</li>
-          <li><strong>Cobertura de Stories</strong> nos dias de visita</li>
-          <li class="nao-incluso">Reunião de alinhamento quinzenal</li>
-        </ul>
-      </div>
-
-      <div class="plano-card">
-        <div class="plano-nome">Completo</div>
-        <div class="plano-sub">Autoridade e volume máximo</div>
-        <div class="plano-preco">
-          <span>Investimento Mensal</span>
-          <strong>R$ 547</strong>
-        </div>
-        <ul class="plano-lista">
-          <li><strong>8 captações</strong> presenciais (2x na semana, R$ 112 de taxa inclusa)</li>
-          <li><strong>16 Vídeos</strong> (Reels) dinâmicos e tendências</li>
-          <li><strong>Fotos ilimitadas</strong> em todos os dias de visita</li>
-          <li><strong>Cobertura de Stories</strong> focada em venda</li>
-          <li><strong>1 Reunião estratégica</strong> de alinhamento no mês</li>
-        </ul>
-      </div>
+    <div class="table-wrapper">
+      <table class="plano-table">
+        <thead>
+          <tr>
+            <th>Benefícios Entregues</th>
+            <th>
+              Essencial
+              <span class="sub-th">Manter o feed ativo</span>
+              <span class="price-th">R$ 178</span>
+            </th>
+            <th class="col-destaque">
+              <div class="plano-badge-table">Melhor Custo-Benefício</div>
+              Presença
+              <span class="sub-th">Visita semanal e stories</span>
+              <span class="price-th">R$ 318</span>
+            </th>
+            <th>
+              Completo
+              <span class="sub-th">Autoridade e volume máximo</span>
+              <span class="price-th">R$ 547</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dias de Captação Presencial</td>
+            <td>2 captações</td>
+            <td class="col-destaque">4 captações (1x/semana)</td>
+            <td>8 captações (2x/semana)</td>
+          </tr>
+          <tr>
+            <td>Taxa de Deslocamento</td>
+            <td>Inclusa (R$ 28)</td>
+            <td class="col-destaque">Inclusa (R$ 56)</td>
+            <td>Inclusa (R$ 112)</td>
+          </tr>
+          <tr>
+            <td>Vídeos (Reels) Finalizados</td>
+            <td>4 vídeos</td>
+            <td class="col-destaque">8 vídeos</td>
+            <td>16 vídeos</td>
+          </tr>
+          <tr>
+            <td>Fotografias Tratadas</td>
+            <td>15 a 20 fotos</td>
+            <td class="col-destaque">40 fotos</td>
+            <td>Ilimitadas (no dia)</td>
+          </tr>
+          <tr>
+            <td>Cobertura de Stories in loco</td>
+            <td><span class="icon-no">×</span></td>
+            <td class="col-destaque"><span class="icon-yes">✓</span> Nos dias de visita</td>
+            <td><span class="icon-yes">✓</span> Foco em vendas</td>
+          </tr>
+          <tr>
+            <td>Reunião de Alinhamento</td>
+            <td><span class="icon-no">×</span></td>
+            <td class="col-destaque"><span class="icon-no">×</span></td>
+            <td><span class="icon-yes">✓</span> 1 vez ao mês</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
   </div>
 </div>
 
